@@ -1,0 +1,9 @@
+<div style="text-align: center;">
+  <h2>{{title}}</h2>
+  <form>
+    <input class="formCalculator" type="text" name="inputBox" [(ngModel)]="inputter" (ngModelChange)="processCalculation()" /> <br>
+    <span>=</span> <br>
+    <span>{{answer}}</span>
+  </form>
+
+</div>
