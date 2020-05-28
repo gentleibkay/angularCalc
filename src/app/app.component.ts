@@ -7,15 +7,35 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Easy Calculator';
-  answer = '';
-  inputter = "";
+  mainInput = '';
+  subAnswer = '';
+  operatorKeys = ['/', 'x', '-', '+', '%'];
 
-  processCalculation(){
-    try {
-      this.answer = eval(this.inputter)
-    } catch (error) {
-      this.answer = "Invalid expression"
+  keyPress(key: string) {
+    if (this.operatorKeys.includes(key)) {
+      const lastKey = this.mainInput[this.mainInput.length - 1];
+      if (this.operatorKeys.includes(lastKey) || this.mainInput === '') {
+        return;
+      }
     }
+    this.mainInput += key;
+  }
+
+  getResult() {
+      try {
+        this.subAnswer = this.mainInput;
+        let tempMainInput = this.mainInput;
+        tempMainInput = String(tempMainInput).replace('x', '*');
+        this.mainInput = eval(tempMainInput);
+      } catch (error) {
+        this.mainInput = 'ERROR';
+        this.subAnswer = error.message;
+      }
+  }
+
+  clearAll () {
+    this.mainInput = '';
+    this.subAnswer = '';
   }
 
 }
