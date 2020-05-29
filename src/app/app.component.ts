@@ -9,26 +9,36 @@ export class AppComponent {
   title = 'Easy Calculator';
   mainInput = '';
   subAnswer = '';
-  operatorKeys = ['/', 'x', '-', '+', '%'];
+  operatorKeys = ['/', 'x', '-', '+'];
+  expression = '';
 
   keyPress(key: string) {
+    const lastKey = String(this.expression).substr(-1);
     if (this.operatorKeys.includes(key)) {
-      const lastKey = this.mainInput[this.mainInput.length - 1];
-      if (this.operatorKeys.includes(lastKey) || this.mainInput === '') {
+      if (this.operatorKeys.includes(lastKey) && this.expression.length > 2) {
+        this.expression = this.expression.substr(0, this.expression.length-1) + key;
         return;
       }
+
+      if(this.expression.length){
+        this.mainInput = this.expression;
+        this.getResult();
+      }
+    } else {
+      this.mainInput = (this.operatorKeys.includes(lastKey))? key : (this.mainInput + key);
     }
-    this.mainInput += key;
+    
+    this.expression += key;
   }
 
   getResult() {
       try {
-        this.subAnswer = this.mainInput;
-        let tempMainInput = this.mainInput;
+        this.subAnswer = this.expression;
+        let tempMainInput = this.expression;
         tempMainInput = String(tempMainInput).replace('x', '*');
         this.mainInput = eval(tempMainInput);
+        this.expression = this.mainInput;
       } catch (error) {
-        this.mainInput = 'ERROR';
         this.subAnswer = error.message;
       }
   }
@@ -36,6 +46,7 @@ export class AppComponent {
   clearAll () {
     this.mainInput = '';
     this.subAnswer = '';
+    this.expression = '';
   }
 
 }

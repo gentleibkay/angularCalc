@@ -6,37 +6,37 @@
   </div>
   <div class="operatorBtn">
     <div class="operators">
-      <div class="opKey" (click)="keyPress('&#40;')">&#40;</div>
-      <div class="opKey" (click)="keyPress('&#41;')">&#41;</div>
-      <div class="opKey" (click)="keyPress('%')">&#37;</div>
+      <div class="numKey" (click)="keyPress('7')">7</div>
+      <div class="numKey" (click)="keyPress('8')">8</div>
+      <div class="numKey" (click)="keyPress('9')">9</div>
       <div class="clkey" (click)="clearAll()">CE</div>
 
     </div>
   </div>
   <div class="keyPadNumber">
     <div class="numbers">
-      <div class="numKey" (click)="keyPress('7')">7</div>
-      <div class="numKey" (click)="keyPress('8')">8</div>
-      <div class="numKey" (click)="keyPress('9')">9</div>
-      <div class="operators opKey" (click)="keyPress('/')">&#247;</div>
-    </div>
-    <div class="numbers">
       <div class="numKey" (click)="keyPress('4')">4</div>
       <div class="numKey" (click)="keyPress('5')">5</div>
       <div class="numKey" (click)="keyPress('6')">6</div>
-      <div class="operators opKey" (click)="keyPress('x')">&#215;</div>
+      <div class="operators opKey" (click)="keyPress('/')">&#247;</div>
     </div>
     <div class="numbers">
       <div class="numKey" (click)="keyPress('1')">1</div>
       <div class="numKey" (click)="keyPress('2')">2</div>
       <div class="numKey" (click)="keyPress('3')">3</div>
+      <div class="operators opKey" (click)="keyPress('x')">&#215;</div>
+    </div>
+    <div class="numbers">
+      <div class="numKey" (click)="keyPress('.')">.</div>
+      <div class="numKey" (click)="keyPress('0')">0</div>
+      <div class="operators opKey" (click)="keyPress('+')">&#43;</div>
       <div class="operators opKey" (click)="keyPress('-')">&#8722;</div>
     </div>
     <div class="numbers">
-      <div class="numKey" (click)="keyPress('0')">0</div>
-      <div class="numKey" (click)="keyPress('.')">.</div>
+      
+      
       <div class="equal equalKey" (click)="getResult()">=</div>
-      <div class="operators opKey" (click)="keyPress('+')">&#43;</div>
+      
     </div>
 
   </div>
