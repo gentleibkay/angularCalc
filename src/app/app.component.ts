@@ -15,7 +15,7 @@ export class AppComponent {
   keyPress(key: string) {
     const lastKey = String(this.expression).substr(-1);
     if (this.operatorKeys.includes(key)) {
-      if (this.operatorKeys.includes(lastKey) && this.expression.length > 2) {
+      if (this.operatorKeys.includes(lastKey) && this.expression.length >= 2) {
         this.expression = this.expression.substr(0, this.expression.length-1) + key;
         return;
       }
@@ -27,7 +27,7 @@ export class AppComponent {
     } else {
       this.mainInput = (this.operatorKeys.includes(lastKey))? key : (this.mainInput + key);
     }
-    
+
     this.expression += key;
   }
 
